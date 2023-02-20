@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('create',[CrudController::class,"create"]);
+Route::post('store',[CrudController::class,"insert"])->name('ajax.insert');

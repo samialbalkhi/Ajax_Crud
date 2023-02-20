@@ -14,9 +14,44 @@
 
     $(document).ready(function(){
 
-    console.log("name");
+      
+    
+// variable_name.append(key_2, value_2);
+        $("#submit").click(function() {
+        console.log("button");
 
-    });
+          
+        var image=$( '#image' )[0].files[0]
+        var fname=$("#name").val();
+        var price=$("#price").val();
+        var details=$("#details").val();
+      
+        var form = new FormData();
+
+        form.append('name', fname);
+        form.append('price', price);
+        form.append('details', details);
+        form.append('image', image);
+    
+        $.ajax({
+            type: "post",
+            processData: false,
+            contentType: false,
+            url: "{{route('ajax.insert')}}",
+            headers: {
+                
+            'X-CSRF-TOKEN': '{{csrf_token()}}'
+        },
+        // processData: false,
+            data: form,
+            success: function (data) {
+            }  
+            
+        });
+        
+               
+            });
+        })
     </script>
 @endsection
 </body>
