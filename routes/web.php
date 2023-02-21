@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\crud\CrudController;
+use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('create',[CrudController::class,"create"]);
-Route::post('store',[CrudController::class,"insert"])->name('ajax.insert');
+Route::get('/create',[CrudController::class,"create"]);
+Route::post('/store',[CrudController::class,"insert"])->name('ajax.insert');
+Route::get('/alloffer',[CrudController::class,"alloffer"]);
+Route::post('/delete',[CrudController::class,"delete"])->name('ajax.delete');

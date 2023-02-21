@@ -1,3 +1,4 @@
+
 <div class="container">
     <h3>Add Your Offers</h3>
     <div class="container mt-3">
@@ -8,20 +9,36 @@
     <div class="mb-3 mt-3">
         <label for="file" class="form-label">upload image</label>
         <input type="file" class="form-control" id="image" name="image">
-        
+
+        @error('image')
+        <small class="form-text text-danger">{{$message}}</small>
+        @enderror
+
     <div class="mb-3 mt-3">
         <label for="uname" class="form-label">Offer Name</label>
         <input type="text" class="form-control" placeholder="Enter offer name" id="name" name="name" >
+
+        @error('name')
+        <small class="form-text text-danger">{{$message}}</small>
+        @enderror
         
     </div>
     <div class="mb-3">
       <label for="pwd" class="form-label">Offer Price</label>
       <input type="text" class="form-control"  placeholder="Enter Offer Price" id="price" name="price">
       
+      @error('price')
+      <small class="form-text text-danger">{{$message}}</small>
+      @enderror
+
     </div>
     <div class="mb-3">
       <label for="pwd" class="form-label">Offer Detils</label>
       <input type="text" class="form-control"  placeholder="Enter Offer Detils" name="details" >
+
+      @error('details')
+      <small class="form-text text-danger">{{$message}}</small>
+      @enderror
     
     </div>
     <div class="form-check mb-3">
