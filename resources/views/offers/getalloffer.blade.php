@@ -31,7 +31,7 @@
     <tbody>
 
         @foreach ($offre as $item)
-            <tr>
+            <tr class="offerrow{{$item->id}}">
                 <th scope="row">{{ $item->id }}</th>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->price }}</td>
@@ -55,7 +55,7 @@
     $(document).ready(function() {
 
         $(".delete").click(function() {
-            console.log("name");
+            
             var offer_id = $(this).attr('offer_id');
             console.log(offer_id);
             $.ajax({
@@ -72,8 +72,12 @@
                     'id': offer_id
                 },
                 success: function(data) {
-                    console.log(data);
+                    if(data.status == true){
+
+                    alert(data.messege);
                 }
+                $('.offerrow'+data.id).remove();
+            }
             });
         })
     });

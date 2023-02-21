@@ -50,12 +50,29 @@ class CrudController extends Controller
         $offre=Offer::select('id','name','price','details','image')->get();   
         return view("offers.getalloffer",compact('offre'));
     }
-    public function delete(Request $request ,$id)
+    public function delete(Request $request)
     {
-        return 'asd';
-        // $offer=Offer::find($id);
-        // dd($request);
-        return $request ;
+     
+       
+        $offer=Offer::find($request->id);
+
+        if($offer){
+
+            $offer->delete();
+
+            return response()->json([
+                'status' => true,
+                'messege' => 'delete data',
+                'id'=>$request->id
+            ]);
+           
+        }else{
+            return response()->json([
+                'status' => false,
+                'messege' => 'no insted data',
+            ]);
+        }
+      
     }
  
 }
