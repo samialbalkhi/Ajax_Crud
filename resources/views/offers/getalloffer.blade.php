@@ -40,8 +40,9 @@
 
 
                 <td>
-                    <a href="" class="btn btn-success">update</a>
-                    <input offer_id="{{ $item->id }}" type="button" class="delete btn-submit" value="Submit" />
+                   <a href="{{route('ajax.edit',$item->id)}}" class="btn btn-success">update</a>
+
+                    <input offer_id="{{ $item->id }}" type="button" class="delete btn-submit" value="delete" />
 
                 </td>
             </tr>
