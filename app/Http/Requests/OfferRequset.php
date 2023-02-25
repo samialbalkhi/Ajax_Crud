@@ -34,11 +34,11 @@ class OfferRequset extends FormRequest
         {
             return [
                 'name.required'=>'your name is required',
-                'name.unique'=>'messages.already a username',
-                'price.required'=>'messages.inter your price offer',
-                'price.numeric'=>"messages.inter youe plese Numbers",
-                'details'=>'messages.inter your details plese',
-                'image'=>'messages.your image is required'
+                'name.unique'=>'already a username',
+                'price.required'=>'inter your price offer',
+                'price.numeric'=>"inter youe plese Numbers",
+                'details'=>'inter your details plese',
+                'image'=>'image is required'
             ];
         }
     

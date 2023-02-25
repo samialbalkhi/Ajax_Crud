@@ -15,6 +15,12 @@
     $(document).ready(function(){
 
         $("#submit").click(function() {
+            $('#image_erorr').text('');
+            $('#name_erorr').text('');
+            $('#price_erorr').text('');
+            $('#details_erorr').text('');
+
+            
         var form = new FormData($('#form')[0]);
         $.ajax({
             type: "post",
@@ -34,7 +40,18 @@
 
                     alert(data.messege);
         }
+    },
+    error:function (reject) {
+        var respones = $.parseJSON(reject.responseText);
+    
+        $.each(respones.errors, function (key,val){
+            console.log(val[0]);
+            $("#"+key+"_erorr").text(val);
+        
+        });
     }
+
+
                 
         })     
             });

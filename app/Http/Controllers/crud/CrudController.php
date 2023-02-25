@@ -19,6 +19,7 @@ class CrudController extends Controller
     public function insert(OfferRequset $request)
     {
 
+        return $request->all();
 
         $path = $request->image->store('images', 'public');
        
