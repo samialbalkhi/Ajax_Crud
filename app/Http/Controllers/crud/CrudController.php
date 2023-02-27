@@ -50,8 +50,13 @@ class CrudController extends Controller
     }
     public function alloffer()
     {
-        $offre = Offer::select('id', 'name', 'price', 'details', 'image')->get();
-        return view("offers.getalloffer", compact('offre'));
+        // $offre = Offer::select('id', 'name', 'price', 'details', 'image')->get();
+        // return view("offers.getalloffer", compact('offre'));
+
+         ////////////////////     paginate     //////////////////////// 
+
+        $offre = Offer::select('id', 'name', 'price', 'details', 'image')->paginate(pagination);
+        return view("offers.paginate", compact('offre'));
     }
     public function delete(Request $request)
     {
@@ -97,5 +102,10 @@ class CrudController extends Controller
             'status' => true,
             'messege' => 'updated in the data',
         ]);
+    }
+    public function The_offer_is_not_activated()
+    {
+        // return Offer::all();
+       return  Offer::UNACTIVE()->get();
     }
 }

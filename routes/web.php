@@ -19,9 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+define('pagination',5);
+
 Route::get('/create',[CrudController::class,"create"]);
 Route::post('/store',[CrudController::class,"insert"])->name('ajax.insert');
 Route::get('/alloffer',[CrudController::class,"alloffer"]);
 Route::post('/delete',[CrudController::class,"delete"])->name('ajax.delete');
 Route::get('/edit/{id}',[CrudController::class,"edit"])->name("ajax.edit");
 Route::post('/update',[CrudController::class,"update"])->name('updateoffer');
+
+Route::get('/The_offer_is_not_activated',[CrudController::class,"The_offer_is_not_activated"]);

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('price');
             $table->string('details');
             $table->string('image');
+            $table->enum('status',[1,0]);
             $table->timestamps();
         });
     }
